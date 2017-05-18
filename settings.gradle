@@ -1,0 +1,5 @@
+rootProject.name = 'kotti'
+
+include 'kotti-core'
+include 'kotti-swing'
+include 'kotti-tests'

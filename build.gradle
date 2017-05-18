@@ -1,0 +1,97 @@
+/*
+
+     |     _    _|_   _|_    o
+     |<   (_)    |_    |_    |
+
+
+For help on multi-project build:
+    https://docs.gradle.org/current/userguide/multi_project_builds.html
+
+*/
+
+buildscript {
+    ext.kotlin_version = '1.1.2-4'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // Upgrade junit-platform-gradle-plugin to M4 once https://github.com/JetBrains/spek/issues/195 is fixed and released.
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M3'
+    }
+}
+
+//
+// Projects Configuration
+//
+
+allprojects {
+
+    apply plugin: 'java'
+
+    group 'com.github.adeynack'
+    version '1.0-SNAPSHOT'
+
+}
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'kotlin'
+    apply plugin: 'idea'
+    apply plugin: 'org.junit.platform.gradle.plugin'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven { url "http://dl.bintray.com/jetbrains/spek" }
+    }
+
+    dependencies {
+
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+
+        testCompile 'org.mockito:mockito-core:2.7.22'
+        testCompile 'org.amshove.kluent:kluent:1.19'
+        testCompile "org.junit.platform:junit-platform-console:1.0.0-M3"
+        testCompile('org.jetbrains.spek:spek-api:1.1.0') {
+            exclude group: 'org.jetbrains.kotlin'
+        }
+        testCompile 'org.skyscreamer:jsonassert:1.4.0'
+
+        testRuntime('org.jetbrains.spek:spek-junit-platform-engine:1.1.0') {
+            exclude group: 'org.junit.platform'
+            exclude group: 'org.jetbrains.kotlin'
+        }
+
+    }
+
+    junitPlatform {
+        platformVersion '1.0.0-M3'
+        filters {
+            engines {
+                include 'spek'
+            }
+        }
+    }
+
+}
+
+//
+// Inter-Project Dependencies
+//
+
+project(':kotti-swing') {
+    dependencies {
+        compile project(':kotti-core')
+    }
+}
+
+project(':kotti-tests') {
+    dependencies {
+        compile project(':kotti-core')
+    }
+}
