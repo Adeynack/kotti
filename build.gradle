@@ -69,6 +69,12 @@ subprojects {
 
     }
 
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+
     junitPlatform {
         platformVersion '1.0.0-M3'
         filters {
@@ -78,20 +84,4 @@ subprojects {
         }
     }
 
-}
-
-//
-// Inter-Project Dependencies
-//
-
-project(':kotti-swing') {
-    dependencies {
-        compile project(':kotti-core')
-    }
-}
-
-project(':kotti-tests') {
-    dependencies {
-        compile project(':kotti-core')
-    }
 }
