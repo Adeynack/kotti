@@ -37,3 +37,24 @@ To execute the tests from all components:
 ```bash
 ./gradlew test
 ```
+
+## Local deployment
+
+To deploy to the local Maven repository (on the development machine) to allow other project to use the library:
+
+```bash
+./gradlew publishToMavenLocal
+```
+
+That also allows quick development of production software while adding and debugging features to `Kotti` locally.
+
+Project using this library from local publishing need to include this in their Gradle file:
+
+```groovy
+repositories {
+    mavenLocal()
+}
+dependencies {
+    compile "com.github.adeynack:kotti-core:0.1-SNAPSHOT"
+}
+```
