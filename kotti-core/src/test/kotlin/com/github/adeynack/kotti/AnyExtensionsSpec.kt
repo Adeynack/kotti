@@ -18,7 +18,7 @@ object AnyExtensionsSpec : Spek({
 
             // here, both `let` and `orElse` return `Unit`.
 
-            it("side effects when the input is null") {
+            it("side effects when the input is null / does not call the `valid` side effect at all") {
                 var nullSideEffect = false
                 var validSideEffect = false
 
@@ -28,11 +28,11 @@ object AnyExtensionsSpec : Spek({
                     nullSideEffect = true
                 }
 
-                nullSideEffect shouldEqual true
                 validSideEffect shouldEqual false
+                nullSideEffect shouldEqual true
             }
 
-            it("side effects when the input is valid") {
+            it("side effects when the input is valid / does not call the `null` side effect at all") {
                 var nullSideEffect = false
                 var validSideEffect = false
 
@@ -42,8 +42,8 @@ object AnyExtensionsSpec : Spek({
                     nullSideEffect = true
                 }
 
-                nullSideEffect shouldEqual false
                 validSideEffect shouldEqual true
+                nullSideEffect shouldEqual false
             }
         }
 
