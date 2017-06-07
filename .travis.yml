@@ -1,4 +1,11 @@
-language: java
+# `trusty` distribution is needed to be able to use `openjdk8`
+# https://docs.travis-ci.com/user/languages/java/#Testing-Against-Multiple-JDKs
+dist: trusty
+
 sudo: false
+
+language: java
+
 jdk:
+    # Java 8 is required in order to use the `kotlin` Gradle plugin.
     - openjdk8
