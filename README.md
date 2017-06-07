@@ -1,5 +1,7 @@
 # kotti, aka _Kotlin: The Missing Bits_
 
+[![Build Status](https://travis-ci.org/Adeynack/kotti.svg?branch=master)](https://travis-ci.org/Adeynack/kotti)
+
 # The Project
 
 I thought of naming it `Kotlinist`. But then, living in Berlin and realizing how much the short name of the infamous
