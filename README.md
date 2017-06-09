@@ -90,7 +90,7 @@ evolve over time.
   * Describe briefly what was added, modified or deleted.
 1. Commit in that branch
    ```bash
-   git add CHANGELOG.md && git commit -m "19 Release notes for version 0.1"
+   git add CHANGELOG.md && git commit -m "#19 Release notes for version 0.1"
    ```
 1. Tag the current commit as the end of the current version.
    ```bash
@@ -103,7 +103,7 @@ evolve over time.
    dependencies in client projects working).
 1. Commit in that branch
    ```bash
-   git add build.gradle && git commit -m "19 Publish version 0.1"
+   git add build.gradle && git commit -m "#19 Publish version 0.1"
    ```
 1. Create a pull request for this branch. Be careful in doing that during a "relative code-freeze" (make sure noone
    merges between the moment you tag and the moment you merge this pull request).
