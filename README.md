@@ -103,7 +103,7 @@ evolve over time.
    dependencies in client projects working).
 1. Commit in that branch
    ```bash
-   git add build.gradle && git commit -m "#19 Publish version 0.1"
+   git add build.gradle && git commit -m "#19 Published version 0.1"
    ```
 1. Create a pull request for this branch. Be careful in doing that during a "relative code-freeze" (make sure noone
    merges between the moment you tag and the moment you merge this pull request).
