@@ -9,7 +9,7 @@ For help on multi-project build:
 
 */
 
-def PUBLISH_VERSION = 0.1
+def PUBLISH_VERSION = 0.2
 
 buildscript {
     ext.kotlin_version = '1.1.2-4'
