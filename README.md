@@ -60,3 +60,30 @@ dependencies {
     compile "com.github.adeynack:kotti-core:0.1-SNAPSHOT"
 }
 ```
+
+## Manual publishing to BinTray
+
+1. Make sure you are exporting the following environment variables.
+    1. `BINTRAY_USER` containing your user name on _BinTray_
+    1. `BINTRAY_API_KEY` containing your API key for _BinTray_. Go get your API key:
+        1. Go to [_Edit your profile_](https://bintray.com/profile/edit) on BinTray
+        1. Click _API Key_
+        1. Click _Copy to clipboard_ (an icon with 2 overlapping squares)
+1. Update the version number by changing variable `PUBLISH_VERSION` in [kotti.gradle](kotti.gradle).
+    ```groovy
+    def PUBLISH_VERSION = 0.2
+    ```
+1. Manually execute the _Gradle_ task for publishing to _BinTray_.
+    ```bash
+    ./gradlew bintrayUpload
+    ```
+1. Log to _BinTray_ and go to [the _Kotti_ repository](https://bintray.com/adeynack/kotti/kotti)
+1. Go to the _Versions_ section and click on the version number you just published.
+1. Make sure all expected files in all components are present.
+   Example with `kotti-core`:
+    1. `kotti-core-0.2-javadoc.jar`
+    1. `kotti-core-0.2-sources.jar`
+    1. `kotti-core-0.2.jar`
+    1. `kotti-core-0.2.pom`
+1. In the [the _Kotti_ repository](https://bintray.com/adeynack/kotti/kotti), in the _Notice_ (look for a gray bell),
+   click _Publish_
