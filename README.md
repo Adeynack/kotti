@@ -43,7 +43,9 @@ To execute the tests from all components:
 
 ## Local deployment
 
-To deploy to the local Maven repository (on the development machine) to allow other project to use the library:
+Deploying to the local Maven repository (on the development machine) allows other projects to use the library in its
+development state. It is suggested, to avoid confusion, to append `-SNAPSHOT` to `PUBLISH_VERSION` in the
+root [build.gradle](build.gradle) file.
 
 ```bash
 ./gradlew publishToMavenLocal
@@ -82,7 +84,7 @@ evolve over time.
    ```groovy
    def PUBLISH_VERSION = 0.1
    ```
-   That means the current version that is about to be published is `0.1`.
+   That means the current version that is about to be published is `0.1`. Make sure no `-SNAPSHOT` suffix is present.
 1. Add [release notes](CHANGELOG.md) for the current version.
   * Add a new version at the BEGINNING of the list (so they are sorted by reverse date order)
   * A new version starts with the version number and the date. ie: `## 0.1 - 2017-06-09`
