@@ -9,10 +9,10 @@ For help on multi-project build:
 
 */
 
-def PUBLISH_VERSION = 0.2
+def PUBLISH_VERSION = '0.2-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.1.2-4'
+    ext.kotlin_version = '1.1.2-5'
     repositories {
         mavenCentral()
         jcenter()
@@ -47,8 +47,8 @@ subprojects {
     apply plugin: 'maven-publish'
     apply plugin: 'com.jfrog.bintray'
 
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    sourceCompatibility = 1.6
+    targetCompatibility = 1.6
 
     repositories {
         mavenCentral()
@@ -58,7 +58,7 @@ subprojects {
 
     dependencies {
 
-        compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
         testCompile 'org.mockito:mockito-core:2.7.22'
         testCompile 'org.amshove.kluent:kluent:1.19'
@@ -73,27 +73,27 @@ subprojects {
             exclude group: 'org.jetbrains.kotlin'
         }
 
-        bintray {
-            user = System.getenv()["BINTRAY_USER"]
-            key = System.getenv()["BINTRAY_API_KEY"]
-            publications = ['MavenPub']
-            pkg {
-                repo = 'kotti'
-                name = 'kotti'
-                licenses = ['MIT']
-                vcsUrl = 'https://github.com/adeynack/kotti.git'
-                version {
-                    name = "$PUBLISH_VERSION"
-                }
+    }
+
+    bintray {
+        user = System.getenv()["BINTRAY_USER"]
+        key = System.getenv()["BINTRAY_API_KEY"]
+        publications = ['MavenPub']
+        pkg {
+            repo = 'kotti'
+            name = 'kotti'
+            licenses = ['MIT']
+            vcsUrl = 'https://github.com/adeynack/kotti.git'
+            version {
+                name = "$PUBLISH_VERSION"
             }
         }
     }
 
-    // This is valid for `compileKotlin` and `compileTestKotlin`.
-    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
+    // Compile the tests with JVM 1.8 (ie: for testing against streams)
+    compileTestKotlin {
         kotlinOptions {
             jvmTarget = "1.8"
-            freeCompilerArgs = ["-Xskip-runtime-version-check"]
         }
     }
 
@@ -127,5 +127,7 @@ subprojects {
             }
         }
     }
+
+
 
 }

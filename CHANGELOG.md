@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 0.2 - ????
+
+### General
+
+* Targeting 1.6 binaries, instead of 1.8, which causes problems when using the library and could be a no-go for Android
+  developers using lower versions of the JVM.
+* No more build dependency on the `jre8` flavour of the _Kotlin STD LIB_.
+
 ## 0.1 - 2017-06-09
 
 ### core
@@ -17,8 +25,8 @@
 
 ### swing
 
-* NEW: [`FlowPanel`](kotti-swing/src/main/kotlin/com/github/adeynack/kotti/swing/FlowPanel.kt), allowing quick creation of `JPanel` with
-  `FlowLayout` and its content.
+* NEW: [`FlowPanel`](kotti-swing/src/main/kotlin/com/github/adeynack/kotti/swing/FlowPanel.kt), allowing quick creation
+  of `JPanel` with `FlowLayout` and its content.
   
 ### tests
 
