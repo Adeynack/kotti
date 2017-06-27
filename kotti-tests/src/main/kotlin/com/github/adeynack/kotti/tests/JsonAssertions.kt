@@ -5,6 +5,7 @@ import org.skyscreamer.jsonassert.JSONCompareMode
 import org.skyscreamer.jsonassert.JSONParser.parseJSON
 
 object JsonAssertions {
+
     /**
      * Compares a [String] containing JSON to another one, expecting a strict equality.
      * - not extensible (the [actual] value must not have more fields than the expected value)

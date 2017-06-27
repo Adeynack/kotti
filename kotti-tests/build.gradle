@@ -1,5 +1,6 @@
 dependencies {
     compile project(':kotti-core')
+    compile 'org.amshove.kluent:kluent:1.19'
     compile 'org.skyscreamer:jsonassert:1.4.0'
 }
 

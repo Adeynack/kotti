@@ -19,13 +19,23 @@ not to. It's easier to achieve a better designed library when not only one set o
 
 # Components
 
+## Core
+
 ### [kotti-core](kotti-core)
 
 General extensions to the _Kotlin_ base library.
 
+## Testing
+
 ### [kotti-tests](kotti-tests)
 
 Tools and assertion utilities useful for testing.
+
+### [kotti-tests-kovenant](kotti-tests-covenant)
+
+Tools and assertion utilities for the [Kovenant](https://github.com/mplatvoet/kovenant) Promises library.
+
+## GUI
 
 ### [kotti-swing](kotti-swing)
 

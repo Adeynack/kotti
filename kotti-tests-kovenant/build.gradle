@@ -1,0 +1,5 @@
+dependencies {
+    compile project(':kotti-core')
+    compile project(':kotti-tests')
+    compile 'nl.komponents.kovenant:kovenant:3.3.0'
+}

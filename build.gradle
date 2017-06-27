@@ -49,6 +49,12 @@ subprojects {
 
     sourceCompatibility = 1.6
     targetCompatibility = 1.6
+    // Compile the tests with JVM 1.8 (ie: for testing against streams)
+    compileTestKotlin {
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
 
     repositories {
         mavenCentral()
@@ -87,13 +93,6 @@ subprojects {
             version {
                 name = "$PUBLISH_VERSION"
             }
-        }
-    }
-
-    // Compile the tests with JVM 1.8 (ie: for testing against streams)
-    compileTestKotlin {
-        kotlinOptions {
-            jvmTarget = "1.8"
         }
     }
 
